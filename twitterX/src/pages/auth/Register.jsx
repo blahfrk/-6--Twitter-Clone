@@ -111,7 +111,7 @@ export default function Register() {
           </FormControl>
 
           <FormControl>
-            <h1>{password}</h1>
+            <h1>At least 6 characters</h1> <h1>{password}</h1>
             <FormLabel>Password</FormLabel>
             <Input
               type="password"
