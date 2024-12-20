@@ -52,9 +52,14 @@ export default function Home() {
       }
     });
 
-    // Retreive tweets from firestore
+    // Retreive tweets with their doc IDs from firestore
     onSnapshot(collection(db, "tweets"), (snapshot) => {
-      setTweets(snapshot.docs.map((t) => t.data()));
+      setTweets(
+        snapshot.docs.map((doc) => ({
+          id: doc.id, // Adds a new 'id' property to the object and its value is the Firestore document's unique ID.
+          ...doc.data(), //  Adds all the properties from doc.data() including the new property 'id' (like body, user_email, etc.) into the same object.
+        }))
+      );
     });
   }, []);
 
