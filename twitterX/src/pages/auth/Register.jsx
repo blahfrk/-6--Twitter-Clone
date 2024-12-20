@@ -62,8 +62,16 @@ export default function Register() {
 
           updateProfile(auth.currentUser, {
             displayName: name, // To display users name in the homepage
+          }).then(() => {
+            // Force reload the user
+            auth.currentUser.reload().then(() => {
+              // Refetch the updated user profile
+              const updatedUser = auth.currentUser;
+
+              // Navigate to home page with forced reload
+              window.location.href = "/";
+            });
           });
-          navigate("/"); // Navigate to home page
         });
     } else {
       Swal.fire({
