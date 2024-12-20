@@ -22,6 +22,9 @@ import {
   collection,
   Timestamp,
   onSnapshot,
+  updateDoc,
+  deleteDoc,
+  doc,
 } from "firebase/firestore"; // import firebase "firestore" service for tweets database
 import { useState, useEffect } from "react";
 
@@ -92,6 +95,20 @@ export default function Home() {
     });
   };
 
+  const deleteTweet = async (id) => {
+    await deleteDoc(doc(db, "tweets", id)); // Deletes the document with the specified ID
+  };
+
+  const editTweet = async (id, newBody) => {
+    const tweetRef = doc(db, "tweets", id); // Reference the specific tweet document
+    try {
+      await updateDoc(tweetRef, { body: newBody }); // Update the "body" field
+      console.log("Tweet updated successfully!");
+    } catch (error) {
+      console.error("Error updating tweet:", error);
+    }
+  };
+
   return (
     <Container maxW="1024px" pt={100}>
       <Heading fontWeight="black" size="3xl" color="#1DA1F2">
@@ -138,10 +155,14 @@ export default function Home() {
           {tweets.map((tweetRecord) => (
             <Tweet
               key={tweetRecord.id}
+              id={tweetRecord.id} // Pass the document ID as a prop
               body={tweetRecord.body}
               email={tweetRecord.user_email}
               name={tweetRecord.name}
               date_posted={tweetRecord.date_posted.toDate().toString()}
+              userEmail={userProfile.email} // Pass the current user's email to determine ownership
+              deleteTweet={deleteTweet} // Pass deleteTweet function as prop
+              editTweet={editTweet} // Pass editTweet function as prop
             ></Tweet>
           ))}
         </Box>
