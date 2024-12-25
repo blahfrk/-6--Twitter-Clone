@@ -29,7 +29,7 @@ export default function Tweet({
   };
 
   return (
-    <Card mt={5} px={5} pb={5} pt={2}>
+    <Card mt={5} px={5} pb={5} pt={2} bg="rgb(32, 41, 70)" color="white">
       <Text fontWeight="bold">{name}</Text>
       <Text fontSize="xs" color="gray">
         🕒 {date_posted}
@@ -37,7 +37,7 @@ export default function Tweet({
       <Divider my={2} color="lightgray"></Divider>
       {isEditing ? (
         <Input
-          value={newBody}
+          value={newBody} // Initial content/valaue is the body which is set in the useState above
           onChange={(e) => setNewBody(e.target.value)}
           size="sm"
         />

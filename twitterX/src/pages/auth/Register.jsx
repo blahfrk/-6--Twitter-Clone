@@ -10,6 +10,7 @@ import {
   Box,
   Card,
   CardBody,
+  Flex,
 } from "@chakra-ui/react";
 
 import { Link, useNavigate } from "react-router-dom";
@@ -83,75 +84,80 @@ export default function Register() {
   };
 
   return (
-    <Container maxW="1024px" p={40}>
-      <Heading size="3xl" mb={5}>
-        Welcome to twitterX!
-      </Heading>
-      <Text fontSize="3xl" color="#4A5568" mb={5}>
-        Create an account here
-      </Text>
+    <Container maxW={{ base: "100%", md: "1024px" }} p={{ base: 5, md: 40 }}>
+      <Flex direction="column" align="center" justify="center" minH="100vh">
+        <Heading size="3xl" mb={5} color="white">
+          Welcome to{" "}
+          <Text as="span" color="#1DA1F2">
+            twitterX!
+          </Text>
+        </Heading>
+        <Text fontSize="3xl" color="#e0e0e0" mb={5}>
+          Create an account here
+        </Text>
 
-      {/* Register Form */}
-      <Card>
-        <CardBody>
-          <FormControl>
-            <h1>{name}</h1>
-            <FormLabel>Name</FormLabel>
-            <Input
-              type="text"
-              onChange={(e) => {
-                setName(e.target.value);
-              }}
-              value={name}
-            />
-          </FormControl>
+        {/* Register Form */}
+        <Card bg="rgb(32, 41, 70)" color="white" w="100%">
+          <CardBody>
+            <FormControl>
+              <h1>{name}</h1>
+              <FormLabel>Name</FormLabel>
+              <Input
+                type="text"
+                onChange={(e) => {
+                  setName(e.target.value);
+                }}
+                value={name}
+              />
+            </FormControl>
 
-          <FormControl>
-            <h1>{email}</h1>
-            <FormLabel>Email address</FormLabel>
-            <Input
-              type="email"
-              onChange={(e) => {
-                setEmail(e.target.value);
-              }}
-              value={email}
-            />
-          </FormControl>
+            <FormControl>
+              <h1>{email}</h1>
+              <FormLabel>Email address</FormLabel>
+              <Input
+                type="email"
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
+                value={email}
+              />
+            </FormControl>
 
-          <FormControl>
-            <h1>At least 6 characters</h1> <h1>{password}</h1>
-            <FormLabel>Password</FormLabel>
-            <Input
-              type="password"
-              onChange={(e) => {
-                setPassword(e.target.value);
-              }}
-              value={password}
-            />
-          </FormControl>
+            <FormControl>
+              <h1>At least 6 characters</h1> <h1>{password}</h1>
+              <FormLabel>Password</FormLabel>
+              <Input
+                type="password"
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+                value={password}
+              />
+            </FormControl>
 
-          <FormControl>
-            <h1>{confirmPassword}</h1>
-            <FormLabel>Confirm Password</FormLabel>
-            <Input
-              type="password"
-              onChange={(e) => {
-                setConfirmPassword(e.target.value);
-              }}
-              value={confirmPassword}
-            />
-          </FormControl>
-          <Button mt={5} colorScheme="blue" onClick={handleRegistration}>
-            Create account
-          </Button>
-          <Box mt={5}>
-            <Link to="/">
-              {/* to use the Link alias add/nest in <ChakraLink> */}
-              <ChakraLink>Already have an account? Login here.</ChakraLink>
-            </Link>
-          </Box>
-        </CardBody>
-      </Card>
+            <FormControl>
+              <h1>{confirmPassword}</h1>
+              <FormLabel>Confirm Password</FormLabel>
+              <Input
+                type="password"
+                onChange={(e) => {
+                  setConfirmPassword(e.target.value);
+                }}
+                value={confirmPassword}
+              />
+            </FormControl>
+            <Button mt={5} colorScheme="blue" onClick={handleRegistration}>
+              Create account
+            </Button>
+            <Box mt={5}>
+              <Link to="/">
+                {/* to use the Link alias add/nest in <ChakraLink> */}
+                <ChakraLink>Already have an account? Login here.</ChakraLink>
+              </Link>
+            </Box>
+          </CardBody>
+        </Card>
+      </Flex>
     </Container>
   );
 }

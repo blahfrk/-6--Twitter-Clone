@@ -10,6 +10,7 @@ import {
   Box,
   Card,
   CardBody,
+  Flex,
 } from "@chakra-ui/react";
 
 import { Link, useNavigate } from "react-router-dom";
@@ -69,51 +70,56 @@ export default function Login() {
   };
 
   return (
-    <Container maxW="1024px" p={40}>
-      <Heading size="3xl" mb={5}>
-        Welcome to twitterX!
-      </Heading>
-      <Text fontSize="3xl" color="#4A5568" mb={5}>
-        Login to your account
-      </Text>
+    <Container maxW={{ base: "100%", md: "1024px" }} p={{ base: 5, md: 40 }}>
+      <Flex direction="column" align="center" justify="center" minH="100vh">
+        <Heading size="3xl" mb={5} color="white">
+          Welcome to{" "}
+          <Text as="span" color="#1DA1F2">
+            twitterX!
+          </Text>
+        </Heading>
+        <Text fontSize="3xl" color="#e0e0e0" mb={5}>
+          Login to your account
+        </Text>
 
-      {/* Login Form */}
-      <Card>
-        <CardBody>
-          <FormControl>
-            <h1>{email}</h1>
-            <FormLabel>Email address</FormLabel>
-            <Input
-              type="email"
-              onChange={(e) => {
-                setEmail(e.target.value);
-              }}
-              value={email}
-            />
-          </FormControl>
+        {/* Login Form */}
+        <Card bg="rgb(32, 41, 70)" color="white" w="100%">
+          <CardBody>
+            <FormControl>
+              <h1>{email}</h1>
+              <FormLabel>Email address</FormLabel>
+              <Input
+                type="email"
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
+                value={email}
+              />
+            </FormControl>
 
-          <FormControl>
-            <h1>{password}</h1>
-            <FormLabel>Password</FormLabel>
-            <Input
-              type="password"
-              onChange={(e) => {
-                setPassword(e.target.value);
-              }}
-              value={password}
-            />
-          </FormControl>
-          <Button mt={5} colorScheme="blue" onClick={handleLogin}>
-            Login
-          </Button>
-          <Box mt={5}>
-            <Link to="/register">
-              {/* to use the Link alias add/nest in <ChakraLink> */}
-              <ChakraLink>Don't have an account? Register here.</ChakraLink>
-            </Link>
-          </Box>
-        </CardBody>
-      </Card>
+            <FormControl>
+              <h1>{password}</h1>
+              <FormLabel>Password</FormLabel>
+              <Input
+                type="password"
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+                value={password}
+              />
+            </FormControl>
+            <Button mt={5} colorScheme="blue" onClick={handleLogin}>
+              Login
+            </Button>
+            <Box mt={5}>
+              <Link to="/register">
+                {/* to use the Link alias add/nest in <ChakraLink> */}
+                <ChakraLink>Don't have an account? Register here.</ChakraLink>
+              </Link>
+            </Box>
+          </CardBody>
+        </Card>
+      </Flex>
     </Container>
   );
 }
