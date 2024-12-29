@@ -70,7 +70,7 @@ export default function Login() {
   };
 
   return (
-    <Container maxW={{ base: "100%", md: "1024px" }} p={{ base: 5, md: 40 }}>
+    <Container maxW={{ base: "100%", md: "1024px" }} px={{ base: 5, md: 5 }}>
       <Flex direction="column" align="center" justify="center" minH="100vh">
         <Heading size="3xl" mb={5} color="white">
           Welcome to{" "}
