@@ -100,7 +100,7 @@ export default function Register() {
         <Card bg="rgb(32, 41, 70)" color="white" w="100%">
           <CardBody>
             <FormControl>
-              <h1>{name}</h1>
+              {/* <h1>{name}</h1> */}
               <FormLabel>Name</FormLabel>
               <Input
                 type="text"
@@ -112,8 +112,8 @@ export default function Register() {
             </FormControl>
 
             <FormControl>
-              <h1>{email}</h1>
-              <FormLabel>Email address</FormLabel>
+              {/* <h1>{email}</h1> */}
+              <FormLabel mt={5}>Email address</FormLabel>
               <Input
                 type="email"
                 onChange={(e) => {
@@ -124,8 +124,8 @@ export default function Register() {
             </FormControl>
 
             <FormControl>
-              <h1>At least 6 characters</h1> <h1>{password}</h1>
-              <FormLabel>Password</FormLabel>
+              {/* <h1>{password}</h1> */}
+              <FormLabel mt={5}>Password</FormLabel>
               <Input
                 type="password"
                 onChange={(e) => {
@@ -134,9 +134,9 @@ export default function Register() {
                 value={password}
               />
             </FormControl>
-
-            <FormControl>
-              <h1>{confirmPassword}</h1>
+            <h1>At least 6 characters</h1>
+            <FormControl mt={3}>
+              {/* <h1>{confirmPassword}</h1> */}
               <FormLabel>Confirm Password</FormLabel>
               <Input
                 type="password"

@@ -86,7 +86,7 @@ export default function Login() {
         <Card bg="rgb(32, 41, 70)" color="white" w="100%">
           <CardBody>
             <FormControl>
-              <h1>{email}</h1>
+              {/* <h1>{email}</h1> */}
               <FormLabel>Email address</FormLabel>
               <Input
                 type="email"
@@ -98,8 +98,8 @@ export default function Login() {
             </FormControl>
 
             <FormControl>
-              <h1>{password}</h1>
-              <FormLabel>Password</FormLabel>
+              {/* <h1>{password}</h1> */}
+              <FormLabel mt={5}>Password</FormLabel>
               <Input
                 type="password"
                 onChange={(e) => {
